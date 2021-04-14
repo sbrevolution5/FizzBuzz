@@ -57,7 +57,54 @@
 
     <!-- Begin page content -->
     <main role="main" class="container">
+        <pre class="line-numbers"><code class="language-javascript"><pre class="line-numbers"><code class="language-javascript">function reverseString() {
+    let userWord = document.getElementById("tacoCat").value;
+    let cleanWord = userWord.replace(/\W+/g, "").toLowerCase();
+    // alert(userWord)
+    // alert(cleanWord)
+    let start = cleanWord.length-1;
+    let newWord= ""
+    for (let i = start; i >= 0; i--) {
+        newWord+= cleanWord[i]
+    }
+    // This section is to display capitalization and punctuation to the user
+    let prettyStart = userWord.length
+    let prettyWord= ""
+    // j is used to not skip letters in the new word.  Only increments when a letter is used
+    let j = 0
+    for (let i = 0; i&lt; prettyStart; i++) {
+        if(userWord[i].match(/[A-Z]/) != null){
+            prettyWord += newWord[j].toUpperCase()
+            j++
+        } else if(userWord[i].match(/[a-z]/) != null){
+            prettyWord += newWord[j].toLowerCase()
+            j++
+        } else if(userWord[i].match(/\W/) != null){ //if nonword character, put same character in pretty word
+            prettyWord+= userWord[i]
+        } else{// handles numbers and underscores
+            prettyWord += newWord[j]
+            j++
+        }
         
+    }
+    //output section
+    let output= document.getElementById("flipped");
+    output.innerText = newWord;
+    let prettyOut = document.getElementById("prettyOut");
+    prettyOut.innerText = prettyWord;
+    let result = document.getElementById("yesOrNo")
+    if (newWord == cleanWord) {
+        confetti.start(1000)
+        
+        let yesAns = "Yes!!! &amp;#128513; &amp;#128513;"
+        result.innerHTML = yesAns
+    } else {
+        let noAns = "No &amp;#128531;"
+        result.innerHTML = noAns
+    }
+}</code>
+                </pre></code>
+                </pre>
 
     </main>
 

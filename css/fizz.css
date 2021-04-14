@@ -1,4 +1,21 @@
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
 
+@-webkit-keyframes blinker {
+    from {
+        opacity: 1.0
+    }
+
+    to {
+        opacity: 0.0
+    }
+}
+.text-danger {
+    animation: blinker 1s linear infinite;
+}
 .footer-color, .navbar-color{
     color: black;
     background-color: #CADAD2;

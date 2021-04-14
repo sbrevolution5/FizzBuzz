@@ -3,13 +3,30 @@ function main() {
     let buzz = parseInt(document.getElementById("buzz").value);
     let limit = parseInt(document.getElementById("limit").value);
     let errorText = document.getElementById("errorText")
-    if (limit > 50000) {
-        errorText.textContent = "Error: Enter a limit below 50,000"
-
+    if (limit >= 50000) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: 'Limit must be between 1 and 50,000'
+        })
+        return
     } else if (limit <= 0) {
-        errorText.textContent = "Error: limit must be positive"
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: 'You must use a positive limit'
+        })
+        return
     } else if (isNaN(fizz) || isNaN(buzz) || isNaN(limit)) {
-        errorText.textContent = "Error: one of your inputs isn't a number"
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: 'One of your inputs isn\'t a number'
+        })
+        return
     } else {
         errorText.textContent = ""
     }
