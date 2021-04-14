@@ -19,6 +19,7 @@ function main() {
     let fizzed = fizzbuzz(fizz, buzz, numList)
     // displays array
     display(fizzed)
+    confetti.start(1000)
 }
 
 function getList(limit) {
