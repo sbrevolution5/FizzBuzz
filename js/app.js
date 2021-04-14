@@ -17,8 +17,6 @@ function main() {
     let numList = getList(limit)
     //replace with fizz/buzz/fizzbuzz 
     let fizzed = fizzbuzz(fizz, buzz, numList)
-    // console.log(fizzed)
-
     // displays array
     display(fizzed)
 }
