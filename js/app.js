@@ -20,7 +20,7 @@ function main() {
     // console.log(fizzed)
 
     // displays array
-    // display(fizzed)
+    display(fizzed)
 }
 
 function getList(limit) {
@@ -55,15 +55,19 @@ function display(fbList) {
     // clears table to insert new data
     resultsBody.innerHTML = "";
     // loops over every element in the numbers array by row
-    for (let i = 0; i < numbers.length; i += colCount) {
+    for (let i = 0; i < fbList.length; i += colCount) {
         let dataRow = fbTemplate.content.cloneNode(true);
         let cols = dataRow.querySelectorAll("td");
         for (let colI = 0; colI < cols.length; colI++) {
-            let value = numbers[i + colI]
+            let value = fbList[i + colI]
             if (typeof value === "undefined") {
                 value = ""
-            } else if (value % 2 == 0) {
-                cols[colI].classList.add("boldit")
+            } else if (value == "Fizz") {
+                cols[colI].classList.add("fizz")
+            } else if (value == "Buzz") {
+                cols[colI].classList.add("buzz")
+            } else if (value == "FizzBuzz") {
+                cols[colI].classList.add("fizzbuzz")
             }
             cols[colI].textContent = value
 
